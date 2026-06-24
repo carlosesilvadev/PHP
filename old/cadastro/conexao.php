@@ -3,10 +3,10 @@
 $host = "localhost";
 
 //Usuário do banco default "root"
-$usuario = "root";
+$usuario = "";
 
 //Senha do banco default ""
-$senha = "GtU*k101";
+$senha = "";
 
 //mysql_connect() conecta com o banco
 //or die - vai apresentar uma mensagem caso não tenha sido possível fazer a conexão
