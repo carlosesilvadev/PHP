@@ -1,11 +1,9 @@
 <?php
 
-$nome = 'Carlos Eduardo';
+$nome = "Carlos Eduardo";
 $idade = 32;
-$peso = 76;
+$peso = 77;
 
-echo "Nome: $nome. <br>";
-echo "Idade: $idade anos.<br>";
-echo "Peso: $peso kg.";
+echo "Nome do usuario: $nome, com $idade anos e $peso kg.";
 
 ?>
