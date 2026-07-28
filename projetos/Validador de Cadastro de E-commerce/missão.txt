@@ -1,0 +1,22 @@
+Sua missão: escrever uma função validarCadastro($dados) que:
+
+- Remove espaços em branco desnecessários do nome (procure qual função nativa do PHP faz isso). - OK
+
+- Valida se o e-mail é um endereço válido de verdade — sem usar regex manual. PHP tem uma função nativa pronta pra isso, específica para validação de dados. Pesquise por "PHP filter functions" na documentação oficial. - OK
+
+- Extrai apenas os números da idade (ignorando o texto "anos") e converte para inteiro. - OK
+
+- Verifica se a senha tem no mínimo 8 caracteres, 1 número e 1 letra maiúscula — aqui você vai precisar de regex mesmo (preg_match). - OK
+
+- Se cupom_desconto for null, deve ser tratado sem gerar warning/erro — pesquise o operador específico do PHP para isso (não é um if comum, existe um operador dedicado para "isso é null? usa default"). - OK
+
+- Retorna um array com dois índices: 'valido' => true/false e 'erros' => [] (lista de mensagens de erro encontradas).
+
+$dadosFormulario = [
+    'nome' => '  João da Silva  ',
+    'email' => 'joao@@email,com',
+    'idade' => '25 anos',
+    'cpf' => '123.456.789-09',
+    'senha' => '123',
+    'cupom_desconto' => null
+];
