@@ -3,7 +3,9 @@
 namespace bng\Controllers;
 
 class Main{
-    public function teste(){
-        return 'teste';
+    public function index($id){
+        echo "Estou dentro do controlador Main - index";
+        echo "<br>";
+        echo "O id indicado foi $id";
     }
 }
