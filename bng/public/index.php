@@ -1,5 +1,9 @@
 <?php
 
-require_once('../app/config.php');
+use bng\System\Router;
 
-echo APP_NAME;
+require_once('../vendor/autoload.php');
+
+echo "<pre>";
+
+Router::dispatch();
