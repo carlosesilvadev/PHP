@@ -8,4 +8,8 @@ class Main{
         echo "<br>";
         echo "O id indicado foi $id";
     }
+
+    public function teste(){
+        echo "Você entrou no método teste";
+    }
 }
