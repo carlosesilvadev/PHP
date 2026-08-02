@@ -1,0 +1,12 @@
+{
+    "name": "carlos/bng",
+    "description": "Aplicação para gestão de name gathering (captação de nomes/leads)",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Carlos Eduardo Silva",
+            "email": "carlos.eduardo-silva@hotmail.com"
+        }
+    ],
+    "require": {}
+}
