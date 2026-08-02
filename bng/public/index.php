@@ -8,4 +8,8 @@ Router::dispatch();
 
 //Pode chamar qualquer função da pasta app/helpers/Functions.php, depois de incluir o arquivo em composer.json
 //Recurso muito utilizado para funções genéricas
-teste();
+
+$nomes = ['joao', 'ana', 'carlos'];
+// $nome = "João Ribeiro";
+
+printData($nomes);
