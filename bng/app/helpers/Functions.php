@@ -1,6 +1,6 @@
 <?php
 
-function printData($data, $die = true){
+function validarVariavel($data, $die = true){
     echo "<pre>";
     
     if(is_object($data) || is_array($data)){

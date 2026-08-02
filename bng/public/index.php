@@ -12,4 +12,4 @@ Router::dispatch();
 $nomes = ['joao', 'ana', 'carlos'];
 // $nome = "João Ribeiro";
 
-printData($nomes);
+validarVariavel($nomes);
