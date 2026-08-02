@@ -1,14 +1,11 @@
 <?php
 
 namespace bng\Controllers;
+use bng\Controllers\BaseController; 
 
-class Main{
-    public function index($id = null){
-        echo "Estou dentro do controlador Main - index";
-        echo "<br>";
-        echo "O id indicado foi $id";
-        
-        //Pode chamar qualquer função da pasta app/helpers/Functions.php, depois de incluir o arquivo em composer.json
+class Main extends BaseController{
+    public function index(){
+        $this->view();
     }
 
     public function teste(){
