@@ -15,6 +15,7 @@ class ComposerStaticInitc4522285f6d7341612849df8ad4961e2
         'b' =>
         array (
             'bng\\System\\' => 11,
+            'bng\\Models\\' => 11,
             'bng\\Controllers\\' => 16,
         ),
     );
@@ -24,6 +25,10 @@ class ComposerStaticInitc4522285f6d7341612849df8ad4961e2
         array (
             0 => __DIR__ . '/../..' . '/app/system',
         ),
+        'bng\\Models\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app/models',
+        ),
         'bng\\Controllers\\' =>
         array (
             0 => __DIR__ . '/../..' . '/app/controllers',
@@ -32,7 +37,11 @@ class ComposerStaticInitc4522285f6d7341612849df8ad4961e2
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'bng\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'bng\\Controllers\\Main' => __DIR__ . '/../..' . '/app/controllers/Main.php',
+        'bng\\Models\\Agents' => __DIR__ . '/../..' . '/app/models/Agents.php',
+        'bng\\Models\\DatabaseModel' => __DIR__ . '/../..' . '/app/models/DatabaseModel.php',
+        'bng\\System\\Database' => __DIR__ . '/../..' . '/app/system/Database.php',
         'bng\\System\\Router' => __DIR__ . '/../..' . '/app/system/Router.php',
     );
 
