@@ -1,12 +1,18 @@
 <?php
 #Arquivo de inicialização do Sistema
 
-echo '<h1>Arquivo index</h1>';
-//Comentário de 1 linha
-echo "Texto dentro de aspas duplas";
+#Carregamento opcional do arquivo
+include 'configuracao.php';
 
-#Comentário de 1 linha
-print '<p>texto usando print</p>';
+#Carregamento opcional do arquivo uma única vez ao carregar a página
+include_once 'helpers.php';
 
-/** Comentário de multiplas linhas */
-print "<small>Texto dentro de aspas duplas no print</small>";
+#Carregamento obrigatório do arquivo
+require "configuracao.php";
+
+#Carregamento obrigatório do arquivo uma única vez ao carregar a página
+require_once 'configuracao.php';
+
+require_once "sistema/configuracao.php";
+
+print "<h1>Index</h1>";
