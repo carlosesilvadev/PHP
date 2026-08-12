@@ -15,4 +15,4 @@ require_once 'configuracao.php';
 
 require_once "sistema/configuracao.php";
 
-print "<h1>Index 3</h1>";
+print "<h1>Index</h1>";
