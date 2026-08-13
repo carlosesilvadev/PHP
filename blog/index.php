@@ -10,15 +10,10 @@ require "Helpers.php";
 
 $texto = 'Texto para resumir';
 
-$string = 'texto';
-$int = 10;
-$float = 9.99;
-$bool = false;
-$nulo = null;
+#var_dump($string);
+echo '<hr>';
 
-var_dump($string);
-echo '<hr>';
-#Funções estão dentro do arquivo Helpers.php
+#Função está dentro do arquivo Helpers.php
 echo saudacao();
-echo '<hr>';
-echo resumirTexto($texto, 50);
+#echo '<hr>';
+#echo resumirTexto($texto, 50);
