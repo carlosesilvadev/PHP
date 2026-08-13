@@ -4,6 +4,7 @@ function saudacao(){
     return 'boa noite';
 }
 
-function resumirTexto(){
-    return 'texto resumido';
+function resumirTexto($texto, $limite, $continue = '...'){
+
+    return $texto;
 }
