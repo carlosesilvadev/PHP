@@ -2,7 +2,12 @@
 
 function saudacao(): string
 {
-    $hora = 14;
+    #https://www.php.net/manual/pt_BR/function.date-default-timezone-get.php
+    #TimeZone setada para evitar erro de timezone diferente daqui de São Paulo
+    date_default_timezone_set('America/Sao_Paulo');
+
+    #https://www.php.net/manual/pt_BR/function.date.php - Função date
+    echo $hora = date('H');
 
     #Substituido && para AND na estrutura condicional
     if ($hora >= 0 and $hora <= 5) {
