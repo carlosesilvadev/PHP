@@ -14,7 +14,7 @@ function saudacao(): string
         $saudacao = 'boa madrugada';
     } elseif ($hora >= 6 and $hora <= 12) {
         $saudacao = 'bom dia';
-    } elseif ($hora >= 13 and $hora <= 18) {
+    } elseif ($hora >= 13 and $hora < 18) {
         $saudacao = 'boa tarde';
     } else {
         $saudacao = 'boa noite';
