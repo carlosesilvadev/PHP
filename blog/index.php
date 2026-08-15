@@ -6,7 +6,7 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-$texto = 'Texto para resumir';
+$texto = '<h3>Texto</h3> <b>para</b> resumir';
 
 /* #Função para contar os caracteres da string e para remover espaço em branco.
 echo $total = mb_strlen(trim($texto));

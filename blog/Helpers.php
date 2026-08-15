@@ -39,7 +39,8 @@ function resumirTexto(string $texto, int $limite, string $continue = '...'): str
 #Corta a frase e adiciona reticencias no final
 function cortarTexto(string $texto, int $limite, string $etc = '...'): string{
     #Função Trim remove os espaços em branco que possam existir no inicio ou no final do texto
-    $textoSemEspacoLateral = trim($texto);
+    #Função strip_tags remove as tags html se existir na string
+    $textoSemEspacoLateral = trim(strip_tags($texto));
 
     #Se o tamanho do texto for menor ou igual ao limite estipulado então sai da função retornando o texto completo.
     if(mb_strlen($textoSemEspacoLateral) <= $limite){
