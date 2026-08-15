@@ -24,8 +24,28 @@ function saudacao(): string
 }
 
 #():string; ():int; ():bool -> Especifica qual é o tipo de dado que a função deve retornar.
-function resumirTexto(string $texto, int $limite, string $continue = '...'): string
-{
+function resumirTexto(string $texto, int $limite, string $continue = '...'): string {
+    $textoLimpo = trim($texto);
 
-    return $texto;
+    if(mb_strlen($textoLimpo) <= $limite){
+        return $textoLimpo;
+    }
+
+    $resumirTexto = mb_substr($textoLimpo, 0, mb_strrpos(mb_substr($textoLimpo, $limite), ''));
+
+    return $resumirTexto.$continue;
+}
+
+#Corta a frase e adiciona reticencias no final
+function cortarTexto(string $texto, int $limite, string $etc = '...'): string{
+    #Função Trim remove os espaços em branco que possam existir no inicio ou no final do texto
+    $textoSemEspacoLateral = trim($texto);
+
+    #Se o tamanho do texto for menor ou igual ao limite estipulado então sai da função retornando o texto completo.
+    if(mb_strlen($textoSemEspacoLateral) <= $limite){
+        return $textoSemEspacoLateral;
+    } else {
+        #Se o tamanho do texto for maior que o limite estipulado então vai exibir o texto apartir do indice 0, ou seja, a primeira letra texto até o indice do limite estipulado e concatena com as reticencias.
+        return mb_substr($textoSemEspacoLateral, 0, $limite).$etc;
+    }
 }
