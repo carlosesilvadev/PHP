@@ -61,3 +61,28 @@ function cortarTexto(string $texto, int $limite, string $etc = '...'): string{
         return mb_substr($textoSemEspacoLateral, 0, $limite).$etc;
     }
 }
+
+/**
+ * Converte número para real e condicional se o valor não for nulo retorna o proprio numero em real, agora se for nulo então vai retornar R$10,00 reais
+ * @param ?float $valor Número que será convertido para Real
+ * @return string Número convertido para BRL
+ * @example R$ 22,00
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function formatarValor(?float $valor = null): string{
+    #Concatena a string 'R$' com o resultado da função padrão do PHP number_format com uma condicional se a variável de valor possui registro
+    #Onde na condição verifica se o valor existir então retorna ele próprio, caso contrário vai retornar o valor default 10 com o separador de 2 casas decimais com vírgula.
+    return "R$ ".number_format(($valor ? $valor : 10), 2, ',', '.');
+}
+
+/**
+ * Converte número para inteiro, sem casa decimal e retorna 0 se for nulo
+ * @param ?float $numero Valor que será formatado
+ * @return string Número formatado com ponto nas casas dos milhares
+ * @example 50.000.000
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function formatarNumero(?float $numero = null): string {
+    #Formata o número com a condicional se o número for válido então retorna ele próprio formatado sem casa decimal e com ponto na casa dos milhares ou 0 se for nulo.
+    return number_format(($numero ?: 0), 0, '.', '.');
+}
