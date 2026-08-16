@@ -134,3 +134,51 @@ function contarTempo(string $data){
         return $seculos == 1 ? '1 seculo' : $seculos.' seculos';
     }
 }
+
+/**
+ * Validação de email com o filtro padrão de email do PHP FILTER_VALIDATE_EMAIL
+ * 
+ * @param string $email texto que será validado se é um e-mail válido
+ * @return bool Retorna um valor booleano de acordo com a validação realizada na string recebida como parâmetro
+ * @example TRUE/FALSE
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function validarEmail(string $email): bool {
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+/**
+ * Validação de URL com uma validação própria
+ * 
+ * @param string $url texto que será validado se é uma URL válida
+ * @return bool Retorna um valor booleano de acordo com a validação realizada na string recebida como parâmetro
+ * @example TRUE/FALSE
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function validarUrl(string $url): bool{
+    if(strlen($url) < 10){
+        return false;
+    }
+
+    if(!str_contains($url, '.')){
+        return false;
+    }
+
+    if(str_contains($url, 'http://') OR str_contains($url, 'https://')){
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Validação de URL com o filtro padrão do PHP FILTER_VALIDATE_URL
+ * 
+ * @param string $url texto que será validado se é uma URL válida
+ * @return bool Retorna um valor booleano de acordo com a validação realizada na string recebida como parâmetro
+ * @example TRUE/FALSE
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function validarUrlComFiltro(string $url): bool{
+    return filter_var($url, FILTER_VALIDATE_URL);
+}
