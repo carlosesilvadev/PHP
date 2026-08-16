@@ -6,26 +6,12 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-$valor = 7;
-/* 
-if($valor){
-    echo $valor;
-}else{
-    echo 0;
-}
-
- */
-
-#Condição Ternária
-echo ($valor ? $valor : 0);
-
-#Condição ternária, onde se true retorna o próprio valor da condicional e false retorna o valor depois dos dois-pontos
-echo $valor ?: 1;
-
-echo "<hr>";
-
-echo formatarValor(1000000);
-
-echo "<hr>";
-
-echo formatarNumero(50000000);
+#Retorna a data e hora atual de acordo com os diversos parâmetros padrões da função date
+# d - Day - Dia
+# m - Mounth - Mês
+# Y - Year - Ano
+# H - Hour - Hora
+# i - Minutes - Minutos
+# s - Seconds - Segundos
+# Além disso foi setado a TimeZone de São Paulo no arquivo /sistema/configuracao.php
+echo date('d/m/Y-H:i:s');
