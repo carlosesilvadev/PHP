@@ -38,15 +38,15 @@ function resumirTexto(string $texto, int $limite, string $continue = '...'): str
 
 /**
  * Corta a frase e adiciona reticencias no final
- * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ * 
  * @param string $texto Frase que será cortada
  * @param int $limite Número que indica o limite de caracteres
- * @param string $etc Simbolo que irá representar a quebra do texto, default '...'
+ * @param string $etc Simbolo que irá representar a quebra do texto com valor default '...', mas pode ser '...Ler mais' ou '<a href="">...'
  * 
  * @return string Retona a string do início até o limite de caracteres concatenado com reticencias
- * @example $texto = "<h3>Texto</h3> <b>para</b> resumir"
- * @example cortarTexto($texto, 15);
+ * 
  * @example "Texto para resu..."
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
  */
 function cortarTexto(string $texto, int $limite, string $etc = '...'): string{
     #Função Trim remove os espaços em branco que possam existir no inicio ou no final do texto

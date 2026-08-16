@@ -39,4 +39,4 @@ echo "</h1><hr>";
 echo resumirTexto($texto, 2);
 echo "</h1><hr>";
 
-echo cortarTexto($texto, 15);
+echo cortarTexto($texto, 15, '<a href="">...');
