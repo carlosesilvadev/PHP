@@ -6,14 +6,12 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-echo validarEmail('teste@jo.com.br') ? 'Endereço de e-mail válido' : 'E-mail inválido';
-echo "<br>";
-echo validarEmail('teste') ? 'Endereço de e-mail válido' : 'E-mail inválido';
+foreach(ANIMAL as $item){
+    echo $item."<br>";
+}
 
-echo "<hr>";
-echo validarUrl('http://sispag.br') ? 'URL válida' : 'URL inválida';
+echo URL_DESENVOLVIMENTO;
+
 echo "<br>";
-echo validarUrlComFiltro('htt://h.b') ? 'URL válida' : 'URL inválida';
-echo "<br>";
-echo validarUrl('htt://h.b') ? 'URL válida' : 'URL inválida';
-#var_dump(validarEmail('teste@nome.br'));
+
+echo constant('SITE_DESCRICAO');
