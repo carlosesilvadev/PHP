@@ -86,3 +86,51 @@ function formatarNumero(?float $numero = null): string {
     #Formata o número com a condicional se o número for válido então retorna ele próprio formatado sem casa decimal e com ponto na casa dos milhares ou 0 se for nulo.
     return number_format(($numero ?: 0), 0, '.', '.');
 }
+
+/**
+ * Contador do tempo que já se passou deste que o conteudo foi postado.
+ * @param string $data Data da postagem no formato dia-mês-Ano Hora-minuto-segundo
+ * @return string Retorna o tempo que já passou desde que houve a publicação até agora
+ * @example Publicado há 3 seculos
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function contarTempo(string $data){
+    echo "Agora: ".$agora = strtotime(date('d-m-Y H:i:s'));
+    echo "<br>";
+    echo "Publicou em: ".$tempo = strtotime($data);
+    echo "<br>";
+    echo "Tempo que já passou: ".$diferenca = $agora-$tempo;
+    echo "<br>";
+    echo "Segundos: ".$segundos = $diferenca;
+    echo "<br>";
+    echo "Minutos: ".$minutos = round($diferenca/60);
+    echo "<br>";
+    echo "Horas: ".$horas = round($diferenca/3600);
+    echo "<br>Dias: ".$dias = round($diferenca/86400);
+    echo "<br>Semanas: ".$semanas = round($diferenca/604800);
+    echo "<br>Meses: ".$meses = round($diferenca/2419200);
+    echo "<br>Anos: ".$anos = round($diferenca/29030400);
+    echo "<br>Seculos: ".$seculos = round($diferenca/2903040000);
+
+    echo "<hr>";
+    var_dump('Parametro: '.$data.'<br>', 'tempo: '.$tempo."<br>", 'agora: '.$agora);
+    echo "<hr>";
+ 
+    if($segundos <= 60){
+        return 'agora';
+    }elseif($minutos <= 60){
+        return $minutos == 1 ? '1 minuto' : $minutos.' minutos';
+    }elseif($horas < 24){
+        return $horas == 1 ? '1 hora' : $horas.' horas';
+    }elseif($dias <= 7){
+        return $dias == 1 ? '1 dia' : $dias.' dias';
+    }elseif($semanas <= 4){
+        return $semanas == 1 ? '1 semana' : $semanas.' semanas';
+    }elseif($meses <= 12){
+        return $meses == 1 ? '1 mês' : $meses.' meses';
+    }elseif($anos <= 100){
+        return $anos == 1 ? '1 ano' : $anos.' anos';
+    }elseif($seculos <= 1000){
+        return $seculos == 1 ? '1 seculo' : $seculos.' seculos';
+    }
+}
