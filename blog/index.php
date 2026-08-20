@@ -6,12 +6,8 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-foreach(ANIMAL as $item){
-    echo $item."<br>";
-}
+/* foreach($_SERVER as $item=>$valor){
+    echo $item.'=> '.$valor."<br>";
+}  */
 
-echo URL_DESENVOLVIMENTO;
-
-echo "<br>";
-
-echo constant('SITE_DESCRICAO');
+var_dump(localhost());

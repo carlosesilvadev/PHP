@@ -182,3 +182,23 @@ function validarUrl(string $url): bool{
 function validarUrlComFiltro(string $url): bool{
     return filter_var($url, FILTER_VALIDATE_URL);
 }
+
+function localhost(): bool{
+    #Comentei porque não estava funcionando
+    #$servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+
+    $servidor = '';
+
+    foreach($_SERVER as $item=>$valor){
+        if($item == 'SERVER_NAME'){
+            $servidor = $valor;
+        }
+    } 
+
+    //Se o ambiente for localhost retorna true, caso contrário é o ambiente hospedado, então retorna false
+    if($servidor == 'localhost'){
+        return true;
+    }
+
+    return false;
+}
