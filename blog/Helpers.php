@@ -182,12 +182,28 @@ function validarUrl(string $url): bool{
 function validarUrlComFiltro(string $url): bool{
     return filter_var($url, FILTER_VALIDATE_URL);
 }
-
+/**
+ * Valida se o servidor atual é localhost ou está hospedado em um servidor externo
+ * 
+ * @return bool Retorna True/False se o nome do servidor encontrado na variável super global $_SERVER['SERVER_NAME'] for igual ou diferente de localhost
+ * @example TRUE/FALSE
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com> 
+ */
 function localhost(): bool{
     #Comentei porque não estava funcionando
-    #$servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+    #Mas depois de uns dias descobri que eram as extensões pra rodar php em tempo real que estava gerando resultado diferente do que foi apresentando no vídeo
+    #var_dump(filter_input(INPUT_SERVER, 'SERVER_NAME'));
 
-    $servidor = '';
+    $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+    
+    if($servidor == "localhost"){
+        return true;
+    }
+
+    return false;
+
+    #Usei essa maneira para contornar o erro da extensão PHP Server
+    /* $servidor = '';
 
     foreach($_SERVER as $item=>$valor){
         if($item == 'SERVER_NAME'){
@@ -200,5 +216,28 @@ function localhost(): bool{
         return true;
     }
 
-    return false;
+    return false; */
+}
+
+/**
+ * Ajusta a url do ambiente dependendo de onde o ambiente está hospedado sendo Desenvolvimento para localhost ou Produção diferente disso
+ * Além disso ajusta a url completa com a / antes da url indicada na chamada da função
+ * 
+ * @param string $url - Será passado para a função o nome da categoria que está sendo requisitada pelo usuário
+ * @return string - Retorna a URL completa concatenada de acordo com as duas situações, se na chamada da função já possuir a / em $ambiente.$url ou se não for indicado a / na chamada da função em $ambiente."/".$url
+ * @example - http://localhost/php/blog/admin OU https://carlosesilvadev.github.io/admin
+ * 
+ */
+function url(string $url): string{
+    $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');
+
+    $ambiente = (!$servidor == 'localhost' ? URL_DESENVOLVIMENTO : URL_PRODUCAO);
+    
+    #Procura se na string possui o caractere /
+    if(str_starts_with($url, '/')){
+        return $ambiente.$url;
+    }
+
+    #Caso não tenha o caractere / então concatena o ambiente com a barra e url requisitada
+    return $ambiente."/".$url;
 }

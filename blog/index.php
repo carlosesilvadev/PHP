@@ -6,8 +6,10 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-/* foreach($_SERVER as $item=>$valor){
-    echo $item.'=> '.$valor."<br>";
-}  */
+#echo $_SERVER['SERVER_NAME'];
 
-var_dump(localhost());
+#var_dump(localhost());
+
+echo url('admin');
+
+?>
