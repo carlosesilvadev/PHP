@@ -7,7 +7,7 @@ function saudacao(): string
     date_default_timezone_set('America/Sao_Paulo');
 
     #https://www.php.net/manual/pt_BR/function.date.php - Função date
-    echo $hora = date('H');
+    $hora = date('H');
 
     #Substituido && para AND na estrutura condicional
     if ($hora >= 0 and $hora <= 5) {
@@ -240,4 +240,34 @@ function url(string $url): string{
 
     #Caso não tenha o caractere / então concatena o ambiente com a barra e url requisitada
     return $ambiente."/".$url;
+}
+
+/**
+ * Formata a data atual de acordo com o padrão exibido no relógio do Windows
+ * 
+ * @var int $diaMes - Retorna o número do dia do Mês com a função date com o parâmetro 'd', dentro de [1-31]
+ * @var int $diaSemana - Retorna o número do dia da semana com a função date com o parâmetro 'w', dentro de [0-6] De Domingo(Sunday):0 até Sábado(Saturday):6
+ * @var int $mes - Retorna o número do mês atual e subtrai em -1, e como o retorno está dentro de [1-12] e o meu array $nomesDosMeses começa com indice 0, foi necessário fazer essa subtração, mas é possível ajustar isso indicando o indice para o meu array começando com 1
+ * @var int $ano - Retorna o ano atual com date() e a passagem de parãmetro com 'Y', onde a representação é realizada com quatro dígitos como por exemplo: 2026
+ * @var array $nomesDiasDaSemana - Retorna um array com os nomes da Semana, ou seja, ['domingo' - 'sábado']
+ * @var array $nomesDosMeses - Retorna um array com os nomes dos meses, ou seja, ['janeiro' - 'dezembro']
+ * @return string $dataFormatada - Retorna uma string formatada com o resultado igual ao apresentado quando coloca o mouse em cima do relógio do Windows
+ * @example sexta-feira, 4 de setembro de 2026
+ * 
+ */
+function dataAtual(): string{
+    #quarta-feira, 2 de setembro de 2026 qua 2023(Hora Local)
+
+    $diaMes = date('d');
+    $diaSemana = date('w');
+    $mes = date('n')-1;
+    $ano = date('Y');
+
+    $nomesDiasDaSemana = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
+
+    $nomesDosMeses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+    $dataFormatada = $nomesDiasDaSemana[$diaSemana].", ".$diaMes." de ".$nomesDosMeses[$mes]." de ".$ano;
+
+    return $dataFormatada;
 }
