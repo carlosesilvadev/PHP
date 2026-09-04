@@ -260,12 +260,25 @@ function dataAtual(): string{
 
     $diaMes = date('d');
     $diaSemana = date('w');
-    $mes = date('n')-1;
+    $mes = date('n');
     $ano = date('Y');
 
     $nomesDiasDaSemana = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
 
-    $nomesDosMeses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+    $nomesDosMeses = [
+        1 => 'janeiro',
+        2 => 'fevereiro',
+        3 => 'março',
+        4 => 'abril',
+        5 => 'maio',
+        6 => 'junho',
+        7 => 'julho',
+        8 => 'agosto',
+        9 => 'setembro',
+        10 => 'outubro',
+        11 => 'novembro',
+        12 => 'dezembro'
+    ];
 
     $dataFormatada = $nomesDiasDaSemana[$diaSemana].", ".$diaMes." de ".$nomesDosMeses[$mes]." de ".$ano;
 
