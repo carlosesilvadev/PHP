@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Retornar a saudação específica de acordo com o horário atual do relógio
+ * 
+ * **ETAPAS:**
+ * 1. **date_default_timezone_set():** - Seta o fuso horario para o de São Paulo
+ * 2. **date('H'):** - Esta função retorna a hora atual
+ * 3. **Switch:** - Esta estrutura condicional vai avaliar de acordo com a variável $hora em qual case será executado
+ * 
+ * @var string $hora - Retorna a hora atual
+ * @return string $saudacao - Retorna a string de saudação de acordo com o horário
+ * @example **boa tarde**
+ */
 function saudacao(): string
 {
     #https://www.php.net/manual/pt_BR/function.date-default-timezone-get.php
@@ -10,7 +22,7 @@ function saudacao(): string
     $hora = date('H');
 
     #Substituido && para AND na estrutura condicional
-    if ($hora >= 0 and $hora <= 5) {
+    /* if ($hora >= 0 and $hora <= 5) {
         $saudacao = 'boa madrugada';
     } elseif ($hora >= 6 and $hora <= 12) {
         $saudacao = 'bom dia';
@@ -18,6 +30,20 @@ function saudacao(): string
         $saudacao = 'boa tarde';
     } else {
         $saudacao = 'boa noite';
+    } */
+
+    switch($hora){
+        case $hora >= 0 and $hora <=5:
+            $saudacao = 'boa madrugada';
+            break;
+        case $hora >= 6 and $hora <= 12:
+            $saudacao = 'boa dia';
+            break;
+        case $hora >= 13 and $hora < 18:
+            $saudacao = 'boa tarde';
+            break;
+        default:
+            $saudacao = 'boa noite';
     }
 
     return $saudacao;
