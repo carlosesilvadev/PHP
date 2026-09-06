@@ -6,53 +6,10 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-/* echo $_SERVER['HTTP_HOST'];
-echo "<br>".$_SERVER['SCRIPT_NAME'];
-
-echo '<hr>';
-
-var_dump($_SERVER); */
-
-#$meses = array();
-
-#$meses = [];
-
-#$meses = ['Janeiro', 'Fevereiro', "Março"];
-$mes = [
-    'Janeiro',
-    'Fevereiro',
-    "Março"
-];
-
-$semana = [
-    2 => 'Segunda',
-    3 => 'Terça',
-    4 => "Quarta"
-];
-
-$fruta = [
-    'A' => 'Abobora',
-    'T' => 'Tomate',
-    "J" => "Jaca"
-];
-
-var_dump($mes);
-echo "<hr>";
-var_dump($semana);
-echo "<hr>";
-var_dump($fruta);
-echo "<hr>";
-echo "Em ".$mes[1]." é pico da safra de ".$fruta['J'].", bom pra comer na ".$semana[3]."";
-echo "<hr>";
-foreach($mes as $chave){
-    echo $chave."<br>";
-}
-echo "<hr>";
-foreach($semana as $chave => $valor){
-    echo $chave." : ".$valor."<br>";
-}
-echo "<hr>";
-
-echo saudacao()." ".dataAtual();
-
-?>
+echo slug("    Adão \"Negro\" - '2022'      ")."<hr>";
+echo slug("Avatar 2: O Caminho da Água")."<hr>";
+echo slug("Não! Não      Olhe!")."<hr>";
+echo slug("Sonic 2 - O Filme")."<hr>";
+echo slug("NOVA SÉRIE NO DISNEY+!")."<hr>";
+echo slug("100 Melhores filmes")."<hr>";
+echo slug("teste!@###$%6¨%%¨,*.:/?\|,")."<hr>";

@@ -284,3 +284,40 @@ function dataAtual(): string{
 
     return $dataFormatada;
 }
+
+/**
+ * Gerar texto limpo para criar url amigavel, onde substitui acentos e caracteres especiais por letras
+ * 
+ * **ETAPAS:**
+ * 1. **strtr():** Traduz os caracteres especiais e acentos da string que existe no $mapa['a'] e substitui por letras e espaço em branco que tem no $mapa['b'].
+ * 2. **strip_tags() e trim():** Remove os espaçoes em branco antes e depois da string e também remove as tags HTML ou PHP
+ * 3. **str_replace():** Substitui os espaços em branco por hífen '-' e depois remove os excessos de hifen por um único hífen.
+ * 4. **strtolower():** Transforma toda a string que possua caractere em maiúsculo para minúsculo
+ * 
+ * @param string $string -> Parâmetro que a função utilizará como base para converter o texto
+ * @var array $mapa['a'] -> Lista de caracteres especiais que serão utilizados como base de busca para procurar e encontrar no parâmetro passado para a função - Origem
+ * @var array $mapa['b'] -> Lista de caracteres que substituirá os caracteres especiais - Destino
+ * @return string $slug - Retorna a string formatada sem acentos ou caracteres especiais e hífen no lugar do espaço entre as palavras.
+ * @example **DE:** Avatar 2: O Caminho da Água | **PARA:** avatar-2-o-caminho-da-agua
+ * 
+ */
+function slug(string $string): string{
+    
+    $mapa['a'] = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûa@#$%&*()-+={[}]/\?"!¨|;:.,\\\'<>°ºª ';
+
+    $mapa['b'] = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuua                                    ';
+    
+    #$slug = strtr(utf8_decode($string), utf8_decode($mapa['a']), $mapa['b']);
+    $slug = strtr(mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'), mb_convert_encoding($mapa['a'], 'ISO-8859-1', 'UTF-8'), $mapa['b']);
+
+    $slug = strip_tags(trim($slug));
+
+    $slug = str_replace(' ', '-', $slug);
+
+    $slug = str_replace(['------','-----','----','---','--'], '-', $slug);
+
+    $slug = strtolower($slug);
+
+    #return utf8_decode($string); #opção para descobrir algum caractere que não foi indicado no mapa['a']
+    return $slug;
+}
