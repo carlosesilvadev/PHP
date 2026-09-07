@@ -360,3 +360,57 @@ function slug(string $string): string{
     #return utf8_decode($string); #opção para descobrir algum caractere que não foi indicado no mapa['a']
     return $slug;
 }
+
+/**
+ * Validar o cpf se é valido ou não
+ * 
+ * @param string $cpf - Parâmetro utilizado para calcular se o CPF é válido
+ * @var bool $validade - Variável que irá retornar da função indicando a validade do CPF
+ * @var string $cpfSemPonto - A função slug() irá tratar a string do CPF realizando a limpeza dos pontos se houver ou qualquer caractere especial, mantendo somente o hífen
+ * @var string $cpfLimpo - A função str_replace() irá substituir todos os caracteres de hífen para vazio, assim a string do cpf não irá conter nenhum caractere especial
+ * @var bool $cpfSemLetra - Se preg_match() retornar true isso quer dizer que a string não tem letras, somente números de 0 à 9 e tem exatamente 11 dígitos, se retornar false é porque tem letra ou menos ou mais de 11 dígitos o que torna um cpf inválido
+ * @see fonte: https://www.macoratti.net/alg_cpf.htm
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ * @return bool $validade - Se o cálculo da função resultar em qualquer inconsistência que indique que o CPF não é valido irá retornar false e true caso contrário
+ */
+function validaCPF(string $cpf):bool{
+    $validade = false;
+    $somaDigitosA = 0;
+    $multiplicadorA = 10;
+    $somaDigitosB = 0;
+    $multiplicadorB = 11;
+
+    $cpfSemPonto = slug($cpf);
+
+    $cpfLimpo = str_replace('-', '', $cpfSemPonto);
+
+    #Retorna 1 se no padrão regex os caracteres do cpf são somente algarismos de 0 até 9 e se possui exatamente 11 dígitos
+    $cpfSemLetra = preg_match("/^[0-9]{11}$/", $cpfLimpo);
+
+    if($cpfSemLetra){        
+        #Calculo do Primeiro Digito Verificador:
+        for($contadorA=0;$contadorA < 9;$contadorA++){
+            $somaDigitosA += $cpfLimpo[$contadorA]*$multiplicadorA--;
+        }
+
+        $restoDasSomasA = $somaDigitosA%11;
+
+        $primeiroDigitoVerificador = ($restoDasSomasA < 2 ? 0 : 11-$restoDasSomasA);
+
+        $validade = ($cpfLimpo[9] == $primeiroDigitoVerificador ? $cpfLimpo[9] = $primeiroDigitoVerificador : false);
+
+        #Calculo do Segundo Digito Verificador:
+        for($contadorB=0;$contadorB < 10;$contadorB++){
+            $somaDigitosB += $cpfLimpo[$contadorB]*$multiplicadorB--;
+        }
+
+        $restoDasSomasB = $somaDigitosB%11;
+
+        $segundoDigitoVerificador = ($restoDasSomasB < 2 ? 0 : 11-$restoDasSomasB);
+
+        $validade = ($cpfLimpo[10] == $segundoDigitoVerificador ? $cpfLimpo[10] = $segundoDigitoVerificador : false);
+
+    }
+    
+    return $validade;
+}

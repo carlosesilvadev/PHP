@@ -6,21 +6,8 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-$numero = 1;
+echo $cpf = '85167495253';
 
-/* while($numero > 0){
-    echo $numero++;
-} */
+echo "<hr>";
 
-for($contador = 1; $contador <= 10; $contador++){
-    echo (!($contador%2) ? $contador.' é par' : $contador.' é impar')."<br>";
-}
-
-echo "<br>";
-
-for($tabuada = 1; $tabuada <= 10; $tabuada++){
-    for($numero = 1; $numero <= 10; $numero++){
-        echo $tabuada." X ".$numero." = ".$tabuada*$numero."<br>";
-    }
-    echo "<hr>";
-}
+echo (validaCPF($cpf) ? 'CPF válido!' : 'CPF Inválido!');
