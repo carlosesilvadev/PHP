@@ -414,3 +414,45 @@ function validaCPF(string $cpf):bool{
     
     return $validade;
 }
+
+/**
+ * Validar CPF com algoritmo encontrado na internet
+ * @param string $cpf - String com o cpf informado pelo usuário
+ * @var string $cpf - Recebe o parâmetro $cpf, mas após a execução da função limparCPF() que realiza a remoção dos caracteres especiais ou letras do cpf se houver
+ * ***ETAPAS*
+ * 1. If verifica se a string possui menos ou mais de 11 caracteres e preg_match() com o regex verifica se os números são repetidos tipo 11122233344
+ * 2. Depois o algoritmo encontrado na internet faz os calculos para validar os digitos verificadores do CPF e coloquei um echo para acompanhar as variáveis ao longo da execução
+ * @return bool - Retorna TRUE/FALSE se o CPF for válido ou não for válido
+ * @example $cpf = 111.222.333-44 | Retorno bool(false)
+ * @author Carlos Eduardo Silva <carlos.eduardo-silva@hotmail.com>
+ */
+function validarCpf(string $cpf): bool{
+    $cpf = limparCPF($cpf);
+
+    if(mb_strlen($cpf) != 11 OR preg_match("/(\d)\1{10}/", $cpf)){
+        return false;
+    }
+
+    for($t = 9; $t < 11; $t++){
+        echo "\$t = $t ";
+        for($d = 0, $c = 0; $c < $t; $c++){
+            $d += $cpf[$c] * (($t+1)-$c);
+            echo "\$d = $d | \$c = $c | \$d += \$cpf[\$c] * ((\$t+1)-\$c) = $d<hr>";
+        }
+
+        $d = ((10*$d) % 11) % 10;
+        
+        echo "\$d = ((10*\$d) % 11) % 10 = $d<hr>";
+        
+        if($cpf[$c] != $d){
+            return false;
+        }
+        echo ($cpf[$c] != $d ? "{$cpf[$c]} É diferente de $d<br>" : "{$cpf[$c]} É igual de $d<br>");
+    }
+
+    return true;
+}
+
+function limparCPF(string $numero): string{
+    return preg_replace("/[^0-9]/","",$numero);
+}

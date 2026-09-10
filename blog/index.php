@@ -6,8 +6,12 @@
 include 'sistema/configuracao.php';
 require "Helpers.php";
 
-echo $cpf = '85167495253';
+echo $cpf = '427.586.838-22';
 
 echo "<hr>";
 
-echo (validaCPF($cpf) ? 'CPF válido!' : 'CPF Inválido!');
+echo $limpaCPF = preg_replace("/[^0-9]/","", $cpf);
+
+echo "<hr>";
+
+var_dump(validarCPF($cpf));
