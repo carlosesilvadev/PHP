@@ -5,13 +5,8 @@
 //declare(strict_types = 1);
 include 'sistema/configuracao.php';
 require "Helpers.php";
+include 'sistema/Nucleo/Mensagem.php';
 
-echo $cpf = '427.586.838-22';
+$msg = new Mensagem();
 
-echo "<hr>";
-
-echo $limpaCPF = preg_replace("/[^0-9]/","", $cpf);
-
-echo "<hr>";
-
-var_dump(validarCPF($cpf));
+var_dump($msg);
