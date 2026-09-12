@@ -14,8 +14,14 @@ echo "<pre>";
 var_dump($msg);
 
 #Acessa o atributo da classe
-$msg->css = 'Texto de teste';
+#$msg->css = 'Texto de teste';
 
 echo "<hr>";
 
 var_dump($msg);
+
+echo "<hr>";
+
+echo $msg->renderizar();
+
+echo $msg->filtrar('Teste de método private, inacessível fora da classe');
