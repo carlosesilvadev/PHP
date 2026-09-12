@@ -9,12 +9,13 @@ include 'sistema/Nucleo/Mensagem.php';
 
 $msg = new Mensagem();
 
-echo $msg->texto = 'texto de teste';
+echo "<pre>";
+
+var_dump($msg);
+
+#Acessa o atributo da classe
+$msg->css = 'Texto de teste';
 
 echo "<hr>";
 
 var_dump($msg);
-
-echo "<hr>";
-
-echo $msg->texto3 = 'texto de teste';
