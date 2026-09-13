@@ -1,51 +1,39 @@
 <?php
-/**
- * Classe responsável para exibir a mensagem do usuário
- * @author Carlos Eduardo Silva | carlos.eduardo-silva@hotmail.com
- * 
- */
-class Mensagem {
-    /*public $texto = 'mensagem de teste.';*/
-    /*protected $texto;*/
-    /**Não é possível acessar atributo private fora desta classe */
-    private $texto;
-    private $css;
 
-    public function sucesso($mensagem): Mensagem{
-        $this->css = 'alert alert-primary';
-        $this->texto = $this->filtrar($mensagem);
+class Mensagem{
 
-        return $this;
+    private string $texto;
+    private string $css;
+
+    private function filtrarTexto(string $txt){
+        return filter_var(strip_tags($txt), FILTER_SANITIZE_SPECIAL_CHARS);
     }
-
-    public function erro($mensagem): Mensagem{
+    
+    public function alertaErro(string $msg): Mensagem{
+        $this->texto = $this->filtrarTexto($msg);
         $this->css = 'alert alert-danger';
-        $this->texto = $this->filtrar($mensagem);
-
         return $this;
     }
 
-    public function alerta($mensagem): Mensagem{
-        $this->css = 'alert alert-warning';
-        $this->texto = $this->filtrar($mensagem);
-
+    public function alertaSucesso(string $msg): Mensagem{
+        $this->texto = $this->filtrarTexto($msg);
+        $this->css = 'alert alert-success';
         return $this;
     }
 
-    public function informa($mensagem): Mensagem{
+    public function alertaInformacao(string $msg): Mensagem{
+        $this->texto = $this->filtrarTexto($msg);
         $this->css = 'alert alert-info';
-        $this->texto = $this->filtrar($mensagem);
+        return $this;
+    }
 
+    public function alertaAviso(string $msg): Mensagem{
+        $this->texto = $this->filtrarTexto($msg);
+        $this->css = 'alert alert-warning';
         return $this;
     }
 
     public function renderizar(): string{
-        return "<div class='{$this->css}'>{$this->texto}</div>";
+        return "<h6 class='{$this->css}'>{$this->texto}</h6>";
     }
-
-    private function filtrar(string $mensagem): string{
-        #Filtro que evita que um usuário insira um código html na página e afete a estrutura do site.
-        return filter_var(strip_tags($mensagem), FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-
 }

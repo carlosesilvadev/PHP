@@ -1,16 +1,13 @@
-<link href="estilo.css" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
 <?php
-#Arquivo de inicialização do Sistema
 
-/*Determina usar tipos de dados especificados, evitando situações de conversão padrão do PHP por exemplo de número para string*/
-//declare(strict_types = 1);
 include 'sistema/configuracao.php';
-require "Helpers.php";
 include 'sistema/Nucleo/Mensagem.php';
+include 'Helpers.php';
 
-$msg = new Mensagem();
+$msgAlerta = new Mensagem;
 
-echo $msg->sucesso("minha mensagem de sucesso!")->renderizar();
-echo $msg->erro("minha mensagem de erro!")->renderizar();
-echo $msg->alerta("minha mensagem de alerta!")->renderizar();
-echo $msg->informa("minha mensagem de informação!")->renderizar();
+echo $msgAlerta->alertaErro('Oops!Algo de errado não está certo!')->renderizar();
+echo $msgAlerta->alertaSucesso('Tada! Operação realizada com sucesso.')->renderizar();
+echo $msgAlerta->alertaInformacao('Mensagem informativa para mais detalhes.')->renderizar();
+echo $msgAlerta->alertaAviso('Alerta! Revisar esta operação para evitar um erro.')->renderizar();
