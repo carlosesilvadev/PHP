@@ -1,3 +1,4 @@
+<link href="estilo.css" rel="stylesheet">
 <?php
 #Arquivo de inicialização do Sistema
 
@@ -9,19 +10,7 @@ include 'sistema/Nucleo/Mensagem.php';
 
 $msg = new Mensagem();
 
-echo "<pre>";
-
-var_dump($msg);
-
-#Acessa o atributo da classe
-#$msg->css = 'Texto de teste';
-
-echo "<hr>";
-
-var_dump($msg);
-
-echo "<hr>";
-
-echo $msg->renderizar();
-
-echo $msg->filtrar('Teste de método private, inacessível fora da classe');
+echo $msg->sucesso("minha mensagem de sucesso!")->renderizar();
+echo $msg->erro("minha mensagem de erro!")->renderizar();
+echo $msg->alerta("minha mensagem de alerta!")->renderizar();
+echo $msg->informa("minha mensagem de informação!")->renderizar();
