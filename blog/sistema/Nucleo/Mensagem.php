@@ -36,4 +36,8 @@ class Mensagem{
     public function renderizar(): string{
         return "<h6 class='{$this->css}'>{$this->texto}</h6>";
     }
+
+    public function __toString(){
+        return $this->renderizar();
+    }
 }
