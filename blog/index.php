@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="estilo.css">
 <?php
 
-
 include 'sistema/configuracao.php';
 include 'sistema/Nucleo/Helpers.php';
-#include 'sistema/Nucleo/Mensagem.php';
+include 'sistema/Nucleo/Mensagem.php';
+include 'sistema/Nucleo/Controlador.php';
 
-Use Sistema\Nucleo\Helpers;
+Use Sistema\Nucleo\Controlador;
 
-echo "Ambiente: ".(Helpers::localhost() ? 'develop' : 'production');
-echo "<br>";
-echo "CPF: ".Helpers::limparCPF('123.456.789.00');
+$controlador = new Controlador('sunset');
+
+echo '<hr>';
+
+var_dump($controlador);
