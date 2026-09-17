@@ -1,0 +1,19 @@
+{
+    "name": "php/blog",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Sistema\\": "sistema/"
+        },
+        "files": [
+            "sistema/configuracao.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Carlos Eduardo Silva",
+            "email": "carlos.eduardo-silva@hotmail.com"
+        }
+    ],
+    "require": {}
+}
