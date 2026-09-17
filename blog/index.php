@@ -1,19 +1,10 @@
 <link rel="stylesheet" href="estilo.css">
 <?php
 
-Use Sistema\Nucleo\Controlador;
-
 include_once 'vendor/autoload.php';
 
-$controlador = new Sistema\Nucleo\Controlador('sunset');
+$document = new \Bissolli\ValidadorCpfCnpj\CPF('111111111111');
 
-$outraManeiraDeInstanciarObjetoSemCaminho = new Controlador('tipo');
+#var_dump($document);
 
-echo '<hr>';
-
-var_dump($controlador);
-var_dump($outraManeiraDeInstanciarObjetoSemCaminho);
-
-echo Sistema\Nucleo\Helpers::saudacao();
-
-echo ANIMAL[1];
+var_dump($document->isValid());

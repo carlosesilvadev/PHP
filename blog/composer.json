@@ -15,5 +15,7 @@
             "email": "carlos.eduardo-silva@hotmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "bissolli/validador-cpf-cnpj": "^1.2"
+    }
 }
