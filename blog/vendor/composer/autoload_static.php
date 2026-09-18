@@ -8,12 +8,17 @@ class ComposerStaticInitbd78abefc219b734e33a1fc436e6bd26
 {
     public static $files = array (
         '129d50a394a396e36e422333c5e22516' => __DIR__ . '/../..' . '/sistema/configuracao.php',
+        'ffc87c148c77529976967d45a4f5cb78' => __DIR__ . '/../..' . '/rotas.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' =>
         array (
             'Sistema\\' => 8,
+        ),
+        'P' =>
+        array (
+            'Pecee\\' => 6,
         ),
         'B' =>
         array (
@@ -25,6 +30,10 @@ class ComposerStaticInitbd78abefc219b734e33a1fc436e6bd26
         'Sistema\\' =>
         array (
             0 => __DIR__ . '/../..' . '/sistema',
+        ),
+        'Pecee\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/pecee/simple-router/src/Pecee',
         ),
         'Bissolli\\ValidadorCpfCnpj\\' =>
         array (

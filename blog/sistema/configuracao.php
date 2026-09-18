@@ -20,3 +20,5 @@ define('ANIMAL', array(
 
 #Outra maneira de definir constante
 const SITE_NOME = 'Carlos';
+
+define('URL_SITE', 'php/blog/');
