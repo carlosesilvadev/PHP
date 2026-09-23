@@ -1,0 +1,14 @@
+#Arquivo responsável para determinar regras de acesso ao sistema pelo Apache
+
+#Opção responsável por liberar(+) ou bloquear(-) a listagem de diretórios além dos arquivos de indice(index.*)
+Options -Indexes
+
+RewriteEngine on
+
+RewriteBase /blog
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+
+RewriteRule ^(.*)$ index.php/$1
