@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Sistema\\' => array($baseDir . '/sistema'),
+    'Pecee\\' => array($vendorDir . '/pecee/simple-router/src/Pecee'),
     'Bissolli\\ValidadorCpfCnpj\\' => array($vendorDir . '/bissolli/validador-cpf-cnpj/src'),
 );

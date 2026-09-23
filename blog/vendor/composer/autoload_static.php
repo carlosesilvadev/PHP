@@ -15,6 +15,10 @@ class ComposerStaticInitbd78abefc219b734e33a1fc436e6bd26
         array (
             'Sistema\\' => 8,
         ),
+        'P' =>
+        array (
+            'Pecee\\' => 6,
+        ),
         'B' =>
         array (
             'Bissolli\\ValidadorCpfCnpj\\' => 26,
@@ -25,6 +29,10 @@ class ComposerStaticInitbd78abefc219b734e33a1fc436e6bd26
         'Sistema\\' =>
         array (
             0 => __DIR__ . '/../..' . '/sistema',
+        ),
+        'Pecee\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/pecee/simple-router/src/Pecee',
         ),
         'Bissolli\\ValidadorCpfCnpj\\' =>
         array (
