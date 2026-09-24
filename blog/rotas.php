@@ -3,9 +3,10 @@
 Use Pecee\SimpleRouter\SimpleRouter;
 
 /**Pasta dos controladores */
-SimpleRouter::setDefaultNamespace('sistema\Controlador');
+SimpleRouter::setDefaultNamespace('Sistema\Controlador');
 
 /**Pasta do projeto/SITE_BASE e a classe do controlador com o método para página de destino*/
-SimpleRouter::get('/php/blog/', 'SiteControlador@index');
+SimpleRouter::get(SITE_BASE, 'SiteControlador@index');
+SimpleRouter::get(SITE_BASE.'sobre', 'SiteControlador@sobre');
 
 SimpleRouter::start();

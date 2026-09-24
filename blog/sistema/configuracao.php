@@ -9,6 +9,7 @@ define('SITE_DESCRICAO', 'Carlos - Desenvolvedor de Sistemas');
 
 define('URL_PRODUCAO', 'https://carlosesilvadev.github.io');
 define('URL_DESENVOLVIMENTO', 'http://localhost/php/blog');
+define('SITE_BASE', 'blog/');
 
 #define('ANIMAL', ['cachorro', 'gato','passaro']);
 

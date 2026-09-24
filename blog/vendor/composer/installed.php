@@ -3,7 +3,7 @@
         'name' => 'php/blog',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '81bb6f1478ed103cb80129b4187313645cac21a9',
+        'reference' => '3ec1b13c373000ff516885de4a7fcef465b470b6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'php/blog' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '81bb6f1478ed103cb80129b4187313645cac21a9',
+            'reference' => '3ec1b13c373000ff516885de4a7fcef465b470b6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
