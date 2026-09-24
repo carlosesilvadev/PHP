@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '129d50a394a396e36e422333c5e22516' => $baseDir . '/sistema/configuracao.php',
+    'ffc87c148c77529976967d45a4f5cb78' => $baseDir . '/rotas.php',
 );

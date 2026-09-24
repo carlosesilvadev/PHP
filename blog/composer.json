@@ -6,7 +6,8 @@
             "Sistema\\": "sistema/"
         },
         "files": [
-            "sistema/configuracao.php"
+            "sistema/configuracao.php",
+            "rotas.php"
         ]
     },
     "authors": [
@@ -15,5 +16,7 @@
             "email": "carlos.eduardo-silva@hotmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "pecee/simple-router": "^5.4"
+    }
 }
