@@ -2,6 +2,7 @@
 
 namespace Sistema\Controlador;
 
+<<<<<<< HEAD
 use Override;
 Use Sistema\Nucleo\Controlador;
 
@@ -22,5 +23,14 @@ class SiteControlador extends Controlador{
 
     public function sobre(): void{
         echo 'página sobre';
+=======
+class SiteControlador{
+    public function index():void{
+        echo "Página index";
+    }
+
+    public function sobre():void{
+        echo "Página sobre";
+>>>>>>> criar-rota
     }
 }

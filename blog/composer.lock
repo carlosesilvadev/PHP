@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "cd12b88ffc06bf1cf64b21ca48e47f65",
     "packages": [
         {
@@ -59,6 +60,11 @@
             "time": "2018-08-14T09:13:34+00:00"
         },
         {
+=======
+    "content-hash": "7801751206f008b70216d63e0923cac7",
+    "packages": [
+        {
+>>>>>>> criar-rota
             "name": "pecee/simple-router",
             "version": "5.4.1.7",
             "source": {
@@ -120,6 +126,7 @@
                 "source": "https://github.com/skipperbent/simple-php-router/issues"
             },
             "time": "2023-12-11T21:48:25+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -439,6 +446,8 @@
                 }
             ],
             "time": "2026-09-18T09:10:14+00:00"
+=======
+>>>>>>> criar-rota
         }
     ],
     "packages-dev": [],

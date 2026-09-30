@@ -1,16 +1,10 @@
-#Bloqueia a listagem dos diretórios sem um index padrão
-Options -indexes
+#Arquivo de Configuração Apache
+Options -Indexes
 
-#Ativa o modo de reescrita
-RewriteEngine On
+RewriteEngine on
+RewriteBase /php/blog/
 
-#Define a url base
-RewriteBase /blog
-
-#Define a condição sob a qual a reescrita ocorrera
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-l
-
-#Define que será aplicado uma regra de reescrita
 RewriteRule ^(.*)$ index.php/$1
