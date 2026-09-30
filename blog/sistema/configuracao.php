@@ -6,7 +6,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 define('SITE_NAME', 'Carlos');
 define('SITE_DESCRICAO', 'Carlos - Desenvolvedor de Sistemas');
-define('SITE_BASE', 'blog/');
+define('SITE_BASE', 'php/blog/');
 
 define('URL_PRODUCAO', 'https://carlosesilvadev.github.io');
 define('URL_DESENVOLVIMENTO', 'http://localhost/php/blog');

@@ -2,7 +2,7 @@
 Options -Indexes
 
 RewriteEngine on
-RewriteBase /blog/
+RewriteBase /php/blog/
 
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
